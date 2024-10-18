@@ -7,6 +7,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import com.qa.swaglabs.factory.DriverFactory;
+import com.qa.swaglabs.pages.HomePage;
 import com.qa.swaglabs.pages.LoginPage;
 
 public class BaseTest {
@@ -16,6 +17,7 @@ public class BaseTest {
 	protected Properties prop ;
 	
 	protected LoginPage loginPage;
+	protected HomePage homePage;
 	
 	@BeforeTest
 	
