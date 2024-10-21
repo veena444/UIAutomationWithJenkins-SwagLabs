@@ -26,8 +26,8 @@ public class LoginPageTest extends BaseTest{
 	@Test (priority = Integer.MAX_VALUE)
 	
 	public void loginTest() {
-		homePage = loginPage.doLogin(prop.getProperty("username"),prop.getProperty("password"));
-		Assert.assertEquals(homePage.getHomePageTitle(), AppConstants.HOME_PAGE_TITLE);
+		productPage = loginPage.doLogin(prop.getProperty("username"),prop.getProperty("password"));
+		Assert.assertTrue(productPage.isProductPageLogoExists());
 	}
 
 }

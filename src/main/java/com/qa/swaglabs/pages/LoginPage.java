@@ -35,13 +35,13 @@ public class LoginPage {
 		return url;
 	}
 	
-	public HomePage doLogin(String userName,String pwd) {
+	public ProductPage doLogin(String userName,String pwd) {
 		
 		eleUtil.waitForElementVisible(username, AppConstants.DEFAULT_MEDIUM_TIME_OUT).sendKeys(userName);
 		eleUtil.doSendKeys(password, pwd);
 		eleUtil.doClick(loginBtn);
 
-		return new HomePage(driver);
+		return new ProductPage(driver);
 
 	}
 }

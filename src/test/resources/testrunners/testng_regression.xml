@@ -8,9 +8,9 @@
 		</classes>
 	</test>
 
-	<test name="Home Page Test">
+	<test name="Product Page Test">
 		<classes>
-			<class name="com.qa.swaglabs.tests.HomePageTest" />
+			<class name="com.qa.swaglabs.tests.ProductPageTest" />
 		</classes>
 	</test> 
   
