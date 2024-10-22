@@ -50,6 +50,26 @@ public class ProductPageTest extends BaseTest {
 		List<String> actualProdList = productPage.getProductList();
 		Assert.assertEquals(actualProdList, AppConstants.EXPECTED_PRODUCT_LIST);
 	}
+	
+	@DataProvider	
+	public Object[][] getProductData() {
+		return new Object[][] {
+			{"Sauce Labs Backpack"},
+			{"Sauce Labs Bike Light"},
+			{"Sauce Labs Bolt T-Shirt"},
+			{"Sauce Labs Fleece Jacket"},
+			{"Sauce Labs Onesie"},
+			{"Test.allTheThings() T-Shirt (Red)"},
+			
+		};
+	}
+	  @Test(dataProvider="getProductData")	  
+	  public void selectProductTest(String productName) {
+		 productDetailsPage = productPage.selectProduct(productName);		 
+		 String actualProductHeaderValue =  productDetailsPage.getProductHeader();
+		 Assert.assertEquals(actualProductHeaderValue, productName);
+		 productDetailsPage.navigateBackToProductPage();
+	  }
 	 
 
 }

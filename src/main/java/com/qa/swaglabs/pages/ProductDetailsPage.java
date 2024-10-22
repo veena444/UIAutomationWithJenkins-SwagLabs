@@ -31,5 +31,9 @@ public class ProductDetailsPage {
 		String productPrice =  eleUtil.doGetElementText(itemPrice);
 		return productPrice;
 	}
+	
+	public void navigateBackToProductPage() {
+		eleUtil.doClick(backToProductsBtn);
+	}
 
 }
