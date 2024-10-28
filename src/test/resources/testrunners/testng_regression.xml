@@ -13,6 +13,12 @@
 			<class name="com.qa.swaglabs.tests.ProductPageTest" />
 		</classes>
 	</test> 
+	
+		<test name="Product Details Page Test">
+		<classes>
+			<class name="com.qa.swaglabs.tests.ProductDetailsPageTest" />
+		</classes>
+	</test>
   
  
 </suite> 
