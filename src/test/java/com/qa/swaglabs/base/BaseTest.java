@@ -32,6 +32,7 @@ public class BaseTest {
 		prop = df.initProp();
 		driver = df.initDriver(prop);
 		loginPage = new LoginPage(driver);
+		softAssert = new SoftAssert();
 	}
 	
 	@AfterTest

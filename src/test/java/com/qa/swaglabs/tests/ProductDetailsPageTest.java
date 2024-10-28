@@ -28,9 +28,10 @@ public class ProductDetailsPageTest extends BaseTest{
 	@Test(dataProvider="getProductInfo")	
 	public void productInfoTest(String productName, String productDescription, String productPrice) {
 		productDetailsPage = productPage.selectProduct(productName);		
-		Assert.assertEquals(productDetailsPage.getProductHeader(), productName);
-		Assert.assertEquals(productDetailsPage.getProductDescription(), productDescription);
-		Assert.assertEquals(productDetailsPage.getProductPrice(), productPrice);
+		softAssert.assertEquals(productDetailsPage.getProductHeader(), productName);
+		softAssert.assertEquals(productDetailsPage.getProductDescription(), productDescription);
+		softAssert.assertEquals(productDetailsPage.getProductPrice(), productPrice);
+		softAssert.assertAll();
 		
 		cartPage = productDetailsPage.navigateToCartPage();
 	}
