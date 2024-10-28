@@ -18,7 +18,7 @@ public class AppConstants {
 	public static final List<String> EXPECTED_PRODUCT_LIST = List.of("Sauce Labs Backpack","Sauce Labs Bike Light","Sauce Labs Bolt T-Shirt","Sauce Labs Fleece Jacket",
 			"Sauce Labs Onesie", "Test.allTheThings() T-Shirt (Red)");
 				
-	
+	public static final String PRODUCT_DETAILS_PAGE_HEADER = "Sauce Labs Backpack";
 	
 	
 	
