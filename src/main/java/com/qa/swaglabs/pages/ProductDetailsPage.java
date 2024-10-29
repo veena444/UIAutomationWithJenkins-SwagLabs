@@ -44,7 +44,6 @@ public class ProductDetailsPage {
 		String price = priceList.get(0).getText();
 		System.out.println("Product price is ===> "+price);
 		return price;
-//		productMap.put("productprice", price);
 	}
 	
 	public CartPage navigateToCartPage() {
@@ -52,11 +51,13 @@ public class ProductDetailsPage {
 		return new CartPage(driver);
 	}
 	
+	public boolean backToProductsButtonExists() {
+		return eleUtil.isElementDisplayed(backToProductsBtn);		
+	}
+	
 	public void navigateBackToProductPage() {
 		eleUtil.doClick(backToProductsBtn);
 	}
-	
-	
 
 
 }

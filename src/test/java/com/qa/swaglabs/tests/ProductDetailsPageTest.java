@@ -31,11 +31,11 @@ public class ProductDetailsPageTest extends BaseTest{
 		softAssert.assertEquals(productDetailsPage.getProductHeader(), productName);
 		softAssert.assertEquals(productDetailsPage.getProductDescription(), productDescription);
 		softAssert.assertEquals(productDetailsPage.getProductPrice(), productPrice);
+		softAssert.assertTrue(productDetailsPage.backToProductsButtonExists());
 		softAssert.assertAll();
 		
 		cartPage = productDetailsPage.navigateToCartPage();
 	}
 	
 
-	
 }
