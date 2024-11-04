@@ -12,6 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.qa.swaglabs.errors.AppError;
 import com.qa.swaglabs.exceptions.BrowserException;
+import com.qa.swaglabs.exceptions.FrameworkException;
 
 public class DriverFactory {
 	
@@ -59,19 +60,47 @@ public class DriverFactory {
 	 */
 	public Properties initProp() {
 		prop = new Properties();
+		FileInputStream ip = null; 
+		
+		String envName = System.getProperty("env");
+		System.out.println("Running tests on env: "+envName);
+		
 		try {
-			FileInputStream ip = new FileInputStream("./src/test/resources/config/config.properties");
-			try {
-				prop.load(ip);
-			} catch (IOException e) {
-				e.printStackTrace();
+		if(envName==null) {
+			System.out.println("env is null...hence running tests on QA env");
+			ip =  new FileInputStream("./src/test/resources/config/qa.config.properties");
+		}
+		else {
+			switch (envName.toLowerCase().trim()) {
+			case "qa":
+				ip =  new FileInputStream("./src/test/resources/config/qa.config.properties");
+				break;
+			case "dev":
+				ip =  new FileInputStream("./src/test/resources/config/dev.config.properties");
+				break;
+			case "uat":
+				ip =  new FileInputStream("./src/test/resources/config/uat.config.properties");
+				break;
+			case "stage":
+				ip =  new FileInputStream("./src/test/resources/config/stage.config.properties");
+				break;
+			case "prod":
+				ip =  new FileInputStream("./src/test/resources/config/config.properties");
+				break;
+
+			default:
+				System.out.println("Please pass the right env name..");
+				throw new FrameworkException("INVALID ENV NAME");				
 			}
-		} catch (FileNotFoundException e) {
+		}
+		prop.load(ip);	
+		} catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+		catch(IOException e) {
+			e.printStackTrace();
+		}
 		return prop;
+    }
 		
-	}
-
 }
