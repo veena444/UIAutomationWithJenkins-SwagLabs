@@ -34,15 +34,17 @@ public class DriverFactory {
 		
 		isHighlight = prop.getProperty("highlight");
 		
+		OptionsManager optionsManager = new OptionsManager(prop);
+		
 		switch (browserName.toLowerCase().trim()) {
 		case "chrome":
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(optionsManager.getChromeOptions());
 			break;
 		case "firefox":
-			driver = new FirefoxDriver();
+			driver = new FirefoxDriver(optionsManager.getFirefoxOptions());
 			break;
 		case "edge":
-			driver = new EdgeDriver();
+			driver = new EdgeDriver(optionsManager.getEdgeOptions());
 			break;
 
 		default:
