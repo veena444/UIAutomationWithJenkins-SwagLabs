@@ -32,11 +32,17 @@ public class ElementUtil {
 	public ElementUtil(WebDriver driver) {
 		this.driver=driver;
 		action = new Actions(driver);
+		jsUtil = new JavaScriptUtil(driver);
 	}
 
-	
+	private void checkElementHighlight(WebElement element) {
+		if(Boolean.parseBoolean(DriverFactory.isHighlight)) {
+			jsUtil.flash(element);
+		}		
+	}
 	public WebElement getElement(By locator) { 
 		WebElement element =  driver.findElement(locator);
+		checkElementHighlight(element);		
 		return element;
 	}
 	
@@ -361,7 +367,9 @@ public class ElementUtil {
 	 */
 	public WebElement waitForElementPresence(By locator,int timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(timeOut));
-		return wait.until(ExpectedConditions.presenceOfElementLocated(locator));		
+		WebElement element =  wait.until(ExpectedConditions.presenceOfElementLocated(locator));	
+		checkElementHighlight(element);
+		return element;
 	}
 	
 	
@@ -375,7 +383,9 @@ public class ElementUtil {
 	 */
 	public WebElement waitForElementVisible(By locator,int timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(timeOut));
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));		
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));	
+		checkElementHighlight(element);
+		return element;
 	}
 	
 	/**
@@ -389,7 +399,9 @@ public class ElementUtil {
 	
 	public WebElement waitForElementVisible(By locator,int timeOut,int intervalTime) {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(timeOut), Duration.ofSeconds(intervalTime));
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));		
+		WebElement element =  wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		checkElementHighlight(element);
+		return element;
 	}
 	
 	/**
@@ -400,7 +412,7 @@ public class ElementUtil {
 	 */
 	public WebElement waitForElementAndClick(By locator, int timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(timeOut));
-		return wait.until(ExpectedConditions.elementToBeClickable(locator));	
+		return wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 	
 	/**
