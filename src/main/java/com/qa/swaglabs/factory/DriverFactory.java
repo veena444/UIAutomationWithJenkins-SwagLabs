@@ -13,7 +13,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import com.qa.swaglabs.errors.AppError;
 import com.qa.swaglabs.exceptions.BrowserException;
 import com.qa.swaglabs.exceptions.FrameworkException;
-
+/**
+ * @author Veena Hegde
+ */
 public class DriverFactory {
 	
 	WebDriver driver;

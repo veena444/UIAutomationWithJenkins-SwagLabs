@@ -6,7 +6,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-
+/**
+ * @author Veena Hegde
+ */
 public class OptionsManager {
 	
 	private Properties prop;

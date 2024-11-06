@@ -14,7 +14,9 @@ import com.qa.swaglabs.pages.CartPage;
 import com.qa.swaglabs.pages.LoginPage;
 import com.qa.swaglabs.pages.ProductDetailsPage;
 import com.qa.swaglabs.pages.ProductPage;
-
+/**
+ * @author Veena Hegde
+ */
 public class BaseTest {
 	
 	WebDriver driver ;

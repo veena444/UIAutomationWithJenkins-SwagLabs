@@ -22,7 +22,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.swaglabs.exceptions.FrameworkException;
 import com.qa.swaglabs.factory.DriverFactory;
-
+/**
+ * @author Veena Hegde
+ */
 public class ElementUtil {
 	
 	private WebDriver driver;

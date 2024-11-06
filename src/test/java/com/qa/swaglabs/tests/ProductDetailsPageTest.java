@@ -7,7 +7,9 @@ import org.testng.annotations.Test;
 
 import com.qa.swaglabs.base.BaseTest;
 
-
+/**
+ * @author Veena Hegde
+ */
 public class ProductDetailsPageTest extends BaseTest{
 	
 	@BeforeClass

@@ -1,7 +1,9 @@
 package com.qa.swaglabs.constants;
 
 import java.util.List;
-
+/**
+ * @author Veena Hegde
+ */
 public class AppConstants {
 	
 	public static final int DEFAULT_SHORT_TIME_OUT = 5;

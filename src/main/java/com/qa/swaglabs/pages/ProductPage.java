@@ -9,7 +9,9 @@ import org.openqa.selenium.WebElement;
 
 import com.qa.swaglabs.constants.AppConstants;
 import com.qa.swaglabs.utils.ElementUtil;
-
+/**
+ * @author Veena Hegde
+ */
 public class ProductPage {
 	
 	private WebDriver driver;
