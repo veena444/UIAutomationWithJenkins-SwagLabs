@@ -23,6 +23,8 @@ public class DriverFactory {
 	
 	public static String isHighlight;
 	
+	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<WebDriver>();
+	
 	/**
 	 * This method is used to initialize the driver on the basis of given browser name. 
 	 * @param browserName
@@ -40,13 +42,16 @@ public class DriverFactory {
 		
 		switch (browserName.toLowerCase().trim()) {
 		case "chrome":
-			driver = new ChromeDriver(optionsManager.getChromeOptions());
+//			driver = new ChromeDriver(optionsManager.getChromeOptions());//without ThreadLocal
+			tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));//with ThreadLocal;
 			break;
 		case "firefox":
-			driver = new FirefoxDriver(optionsManager.getFirefoxOptions());
+//			driver = new FirefoxDriver(optionsManager.getFirefoxOptions());
+			tlDriver.set(new FirefoxDriver(optionsManager.getFirefoxOptions()));
 			break;
 		case "edge":
-			driver = new EdgeDriver(optionsManager.getEdgeOptions());
+//			driver = new EdgeDriver(optionsManager.getEdgeOptions());
+			tlDriver.set(new EdgeDriver(optionsManager.getEdgeOptions()));
 			break;
 
 		default:
@@ -54,12 +59,24 @@ public class DriverFactory {
 			throw new BrowserException(AppError.INVALID_BROWSER_MSG);
 		}
 		
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.get(prop.getProperty("url"));
+//		driver.manage().window().maximize();
+		getDriver().manage().window().maximize();
+//		driver.manage().deleteAllCookies();
+		getDriver().manage().deleteAllCookies();
+//		driver.get(prop.getProperty("url"));
+		getDriver().get(prop.getProperty("url"));
 		
-		return driver;		
+//		return driver;
+		return getDriver();
 
+	}
+	
+	/**
+	 * This method is used to return the driver with ThreadLocal
+	 * @return ThreadLocal driver
+	 */
+	public static WebDriver getDriver() {
+		return tlDriver.get();
 	}
 	
 	/**
