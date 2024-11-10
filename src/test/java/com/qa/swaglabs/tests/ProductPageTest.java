@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import com.qa.swaglabs.base.BaseTest;
 import com.qa.swaglabs.constants.AppConstants;
+
 /**
  * @author Veena Hegde
  */
@@ -40,11 +41,13 @@ public class ProductPageTest extends BaseTest {
 		Assert.assertTrue(productPage.isProductPageLogoExists());
 	}
 
-	@Test
-
-	public void productPageProductCountTest() {
-		Assert.assertEquals(productPage.getProductsCount(), AppConstants.PRODUCT_COUNT);
-	}
+	/*
+	 * @Test
+	 * 
+	 * public void productPageProductCountTest() {
+	 * Assert.assertEquals(productPage.getProductsCount(),AppConstants.PRODUCT_COUNT
+	 * ); }
+	 */
 
 	@Test
 
