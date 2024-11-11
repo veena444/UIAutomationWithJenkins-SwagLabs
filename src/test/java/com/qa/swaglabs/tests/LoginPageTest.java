@@ -1,13 +1,17 @@
 package com.qa.swaglabs.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.qa.swaglabs.base.BaseTest;
 import com.qa.swaglabs.constants.AppConstants;
+import com.qa.swaglabs.listeners.ExtentReportListener;
 /**
  * @author Veena Hegde
  */
+
+@Listeners(ExtentReportListener.class)
 public class LoginPageTest extends BaseTest{
 	
 	@Test
