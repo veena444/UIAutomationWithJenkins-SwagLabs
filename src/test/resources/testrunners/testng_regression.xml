@@ -5,6 +5,8 @@
 	<listeners>
 		<listener
 			class-name="com.qa.swaglabs.listeners.ExtentReportListener" />
+		<listener
+			class-name="com.qa.swaglabs.listeners.AnnotationTransformer" />
 	</listeners>
 
 	<test name="Login Page Test">
