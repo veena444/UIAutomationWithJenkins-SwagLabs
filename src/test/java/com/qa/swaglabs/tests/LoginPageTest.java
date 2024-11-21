@@ -11,7 +11,7 @@ import com.qa.swaglabs.listeners.ExtentReportListener;
  * @author Veena Hegde
  */
 
-@Listeners(ExtentReportListener.class)
+//@Listeners(ExtentReportListener.class)
 public class LoginPageTest extends BaseTest{
 	
 	@Test
